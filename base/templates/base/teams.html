@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div>
+   <div>
+<a href="{% url 'leader_details' team.id %}">{{ team.leader.username }}(Leader)</a>
+
+{% for members in team_members %}
+<div>
+   <a href="{% url 'member_details' members.id %}">{{members.name}}</a>
+   <a href="{% url 'update-member' members.id team.id%}">Edit</a>
+   <a href="{% url 'delete-member' members.id team.id%}">Delete</a>
+</div>
+{% endfor %}
+<hr>
+<a href="{% url 'add-member' team.id %}">add-member</a>
+</div>
+</div>
+{% endblock content%}

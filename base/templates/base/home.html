@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+
+{% block content%}
+<h1>HOME</h1>
+<div>
+    <div>
+     {% for game in games %}
+        <div>
+            <h5>{{game.id}}--<a href="{% url 'game' game.id %}">{{game.name}}</h5>
+        </div>
+     {% endfor %}
+    </div>
+</div>
+
+{% endblock content%}

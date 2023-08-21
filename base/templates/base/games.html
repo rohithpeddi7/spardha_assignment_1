@@ -1,0 +1,23 @@
+{%extends 'main.html' %}
+
+{% block content %}
+<div>
+    <div>
+        <h1>{{game.name}}</h1>
+        <hr>
+        <a href="{% url 'create-team' %}">Create Team</a>
+        <hr>
+{% for team in teams %}
+   <div>
+    <a href="{% url 'update-team' team.id%}">Edit</a>
+    <a href="{% url 'delete-team' team.id %}">Delete</a>
+    <span>  Team Leader--@{{ team.leader.username }}</span>
+   <h5><a href="{% url 'team' team.id %}">{{team.team_name}}</a></h5>
+   <hr>
+   </div>
+{% endfor %}
+</div>
+</div>
+
+
+{% endblock content %}
