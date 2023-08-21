@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block home %}
+
+<h2 class="text-center"> Click On Games to see Teams registered in it </h2>
+<div class="accordion w-75 mx-auto h-75" id="games">
+
+    {% for game in games %}
+    <div class="accordion-item m-3 shadow">
+        <h2 class="accordion-header" id="heading{{game.id}}">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse{{game.id}}" aria-expanded="false" aria-controls="collapse{{game.id}}">
+                {{game.name}}
+            </button>
+        </h2>
+        <div id="collapse{{game.id}}" class="accordion-collapse collapse" aria-labelledby="heading{{game.id}}"
+            data-bs-parent="#games">
+            <div class="accordion-body">
+                <h6>Click on teams to see players in it</h6>
+                <ol>
+                    {% for team in teams %}
+                    {% if team.game_id == game.id %}
+
+                    <!-- Button trigger modal -->
+                    <li><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal{{team.team_name}}{{game.id}}">
+                            {{team.team_name}}
+                        </button></li>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="modal{{team.team_name}}{{game.id}}" tabindex="-1" aria-labelledby="modal{{team.team_name}}{{game.id}}Label"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modal{{team.team_name}}{{game.id}}Label">Team Players</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="w-100">
+                                        <tr>
+                                            <th>Player Name</th>
+                                            <th>Age</th>
+                                            <th>Institute</th>
+                                        </tr>
+                                        {% for player in players %}
+                                            {% if player.team_id == team.id %}
+                                                <tr>
+                                                    <td>{{player.name}}</td>
+                                                    <td>{{player.age}}</td>
+                                                    <td>{{player.institute}}</td>
+                                                </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </ol>
+                {% comment %} <h1>Team Name</h1>
+                <ol>
+                    <li>Player 1</li>
+                    <li>Player 2</li>
+                    <li>Player 3</li>
+                </ol> {% endcomment %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+
+
+</div>
+
+{% endblock %}

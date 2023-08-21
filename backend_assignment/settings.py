@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'games',
+    'bootstrap5',
+    'teams',
+    'players'
 ]
 
 MIDDLEWARE = [
@@ -51,10 +55,14 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'backend_assignment.urls'
 
+STATICFILES_DIRS = [
+    BASE_DIR, "static"
+]
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR, "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

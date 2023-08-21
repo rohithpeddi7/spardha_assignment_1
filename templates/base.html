@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-light">
+
+        <div class="container-fluid d-flex justify-content-center">
+            <ul class="navbar-nav">
+                <li class="nav-item mx-5">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item mx-5">
+                    <a class="nav-link" href="/registerteam">Register Team</a>
+                </li>
+                <li class="navbar-brand mx-5">
+                    <img src="/static/logo.jpg" alt="Spardha" style="width: 50px;" class="rounded-circle">
+                </li>
+                <li class="nav-item mx-5">
+                    <a class="nav-link" href="/addplayers">Add Players</a>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+
+    {% block home %}{% endblock %}
+    {% block registerTeam %}{% endblock %}
+    {% block addPlayers %}{% endblock %}
+
+</body>
+
+</html>

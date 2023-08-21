@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from backend_assignment import views
 
 """
 Add your urls here.
@@ -25,4 +26,7 @@ Then make urlpatterns for supporting CRUD operations on these models as you feel
 
 urlpatterns = [
     path('admin/', admin.site.urls), # Can remove if you wish to, but useful to debug.
+    path('', views.home), 
+    path('registerteam/', views.registerTeam),
+    path('addplayers/', views.addPlayers),
 ]
