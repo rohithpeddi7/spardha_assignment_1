@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -88,13 +89,14 @@ WSGI_APPLICATION = 'backend_assignment.wsgi.application'
 #     }
 # }
 
+load_dotenv()
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'spardha_backend',
-        'USER': 'admin',
-        'PASSWORD': 'T1qmIpM7YJWo6XpPMTuqxqih595E9vzp',
-        'HOST': 'dpg-cjhokgr37aks739uoth0-a.singapore-postgres.render.com',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
         'PORT': '5432'
     }
 }
