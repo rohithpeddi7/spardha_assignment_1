@@ -21,7 +21,7 @@ pip install -r requirements.txt
 `Deadline`: 22nd August 2023
 
 ## My changes:
-Site Link: [https://spardha-assignment-1.vercel.app/] (Spardha Assignment 1)
+Site Link: https://spardha-assignment-1.vercel.app/
 1. Can see Games -> Teams -> Players
 2. Used Bootstrap5 in frontend
 3. Used PostgreSql to deploy in vercel (frontend) and in render.com (postgres)
