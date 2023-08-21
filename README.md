@@ -20,3 +20,13 @@ pip install -r requirements.txt
 
 `Deadline`: 22nd August 2023
 
+## My changes:
+Site Link: [https://spardha-assignment-1.vercel.app/](Spardha Assignment 1)
+1. Can see Games -> Teams -> Players
+2. Used Bootstrap5 in frontend
+3. Used PostgreSql to deploy in vercel (frontend) and in render.com (postgres)
+4. Admin can only add the games by hitting the end point /admin
+5. Users can register their teams and Add players into the team
+6. Duplicate teams aren't allowed in a single game (Though same team name can be used in different games)
+7. Note: If the site takes time to load, wait for 4-5 mins. Since render.com takes time to load in initial load.
+
