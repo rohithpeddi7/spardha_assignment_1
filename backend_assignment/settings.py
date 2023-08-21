@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-7n%0ga1ghwwqe+20jyzb=sv!12!i0x2#y$5@vhog(*j)q82te='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -58,6 +59,8 @@ ROOT_URLCONF = 'backend_assignment.urls'
 STATICFILES_DIRS = [
     BASE_DIR, "static"
 ]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 TEMPLATES = [
     {
@@ -81,10 +84,21 @@ WSGI_APPLICATION = 'backend_assignment.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'spardha_backend',
+        'USER': 'admin',
+        'PASSWORD': 'T1qmIpM7YJWo6XpPMTuqxqih595E9vzp',
+        'HOST': 'dpg-cjhokgr37aks739uoth0-a.singapore-postgres.render.com',
+        'PORT': '5432'
     }
 }
 
