@@ -30,5 +30,6 @@ urlpatterns = [
     path('',views.home),
     path('allGames/',views.allGames),
     path('allTeams/',views.allTeams),
-    path('allGames/<str:name>',views.particularGame,name="particularGame")
+    path('allGames/<str:name>',views.particularGame,name="particularGame"),
+    path('allTeams/<str:name>',views.particularTeam,name="particularTeam"),
 ]

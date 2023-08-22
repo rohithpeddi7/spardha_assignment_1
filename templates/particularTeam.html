@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Particular Game</title>
+<title>Particular Team</title>
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -23,7 +23,7 @@
     text-align: center;
     margin-bottom: 20px;
   }
-  .game-details {
+  .team-details {
     margin-bottom: 20px;
   }
   .team-list {
@@ -48,7 +48,7 @@
   label {
     font-weight: bold;
   }
-  input[type="text"] {
+  input {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -65,42 +65,34 @@
   button[type="submit"]:hover {
     background-color: #0056b3;
   }
-  a{
-    display: inline;
-  }
 </style>
 </head>
 <body>
   <div class="container">
-    <h1>Particular Game: {{ gameData.name }}</h1>
-    <div class="game-details">
-      <p><strong>Game Name:</strong> {{ gameData.name }}</p>
+    <h1>Particular Team: {{ teamData.name }}</h1>
+    <div class="team-details">
+      <p><strong>Team Name:</strong> {{ teamData.name }}</p>
     </div>
-    <h2>Teams Associated:</h2>
+    <h2>Players Associated:</h2>
     <ul class="team-list">
-      {% for team in gameData.teams.all %}
-      <div class="team-item">
-        <strong>Team Name:</strong> 
-        <a href="{% url 'particularTeam' team.name %}" >{{ team.name }}
+      {% for player in teamData.players.all %}
+        <a class="team-item">
+          <strong>Player Name:</strong> {{ player.name }}<br>
+          <strong>Age:</strong> {{ player.age }}
         </a>
-        <strong>College:</strong> {{ team.college }}
-
-      </div>
       {% endfor %}
-      {% if gameData.teams.all|length == 0 %}
-        <p>No teams associated with this game.</p>
+      {% if teamData.players.all|length == 0 %}
+        <p>No players associated with this team.</p>
       {% endif %}
     </ul>
   </div>
   <div class="container">
-    <h1>Add a Team</h1>
+    <h1>Add a Player</h1>
     <form method="post">
       {% csrf_token %}
       {{ form.as_p }}
-      <button type="submit">Create Team</button>
+      <button type="submit">Create Player</button>
     </form>
   </div>
 </body>
 </html>
-
-

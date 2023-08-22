@@ -45,7 +45,7 @@
     <ul class="game-list">
       {% for game in teamData %}
         <li class="game-item">
-          {{ game.name }}
+          {{ game.name }} <span style="right:0">{{ game.college }}</span>
         </li>
       {% endfor %}
     </ul>
