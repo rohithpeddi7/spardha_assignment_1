@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Particular Game</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .game-details {
+    margin-bottom: 20px;
+  }
+  .team-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .team-item {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Particular Game: {{ gameData.name }}</h1>
+    <div class="game-details">
+      <p><strong>Game Name:</strong> {{ gameData.name }}</p>
+    </div>
+    <h2>Teams Associated:</h2>
+    <ul class="team-list">
+      {% for team in gameData.teams.all %}
+        <li class="team-item">
+          <strong>Team Name:</strong> {{ team.name }}<br>
+          <strong>College:</strong> {{ team.college }}
+        </li>
+      {% endfor %}
+      {% if gameData.teams.all|length == 0 %}
+        <p>No teams associated with this game.</p>
+      {% endif %}
+    </ul>
+  </div>
+</body>
+</html>

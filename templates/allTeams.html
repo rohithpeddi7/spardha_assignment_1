@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Games</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .game-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .game-item {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>All Teams</h1>
+    <ul class="game-list">
+      {% for game in teamData %}
+        <li class="game-item">
+          {{ game.name }}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</body>
+</html>
