@@ -1,0 +1,9 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+{% for x in Games %}
+   <a href = '/game/{{x.id}}/'> <h3>{{ x.name }}</h3></a>
+{% endfor %}
+
+{% endblock %}

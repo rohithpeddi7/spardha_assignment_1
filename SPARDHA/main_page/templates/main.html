@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Spardha</h1>
+            {% if request.user.is_authenticated %}
+                <a href = "/logout/">Logout</a>
+            {%else %}
+                <a href = "/login/">Login</a>
+            {% endif %}
+           <hr>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+
+        {% block content %}
+
+
+        {% endblock %}
+
+    </body>
+</html>

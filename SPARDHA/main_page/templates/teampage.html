@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    <h2>{{ team.game_name }}</h2>
+
+    <h4>Team - {{ team.name }}</h4>
+    {% if request.user == team.leader %}
+        <a href = '/updateteam/{{ team.id }}/'>EDIT Team</a>
+        <a href = '/deleteteam/{{ team.id }}'>DELETE</a>
+    {% endif %}
+    <ol>
+        <p> Leader - <b>{{ team.leader }}</b></p>
+
+        <P>Players  </p>
+
+        {% for x in team.players.all %}
+            <li>{{ x.member }}</li>
+        {% endfor %}
+
+    </ol>    
+{% endblock %}

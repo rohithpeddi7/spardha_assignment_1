@@ -1,5 +1,5 @@
 """
-URL configuration for backend_assignment project.
+URL configuration for SPARDHA project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -15,14 +15,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-
-"""
-Add your urls here.
-There should be one landing page showing the games and teams.
-Then make urlpatterns for supporting CRUD operations on these models as you feel.
-"""
+from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls), # Can remove if you wish to, but useful to debug.
+    path('admin/', admin.site.urls),
+    path('', include('main_page.urls')),
 ]

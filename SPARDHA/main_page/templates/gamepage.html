@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    <h2>{{ game.name }}</h2>
+
+    <a href = '/createteam/'>Create new team</a>
+    <br>    
+    <h3>Teams Registered</h3>
+    <ol>
+        {% for x in teams %}
+            <a href = '/team/{{ x.id }}/'><li>{{x.name}}</li> </a> 
+        {% endfor %}
+    </ol>    
+{% endblock %}
