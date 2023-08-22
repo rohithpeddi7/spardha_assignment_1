@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 """
 Add your urls here.
@@ -25,4 +25,5 @@ Then make urlpatterns for supporting CRUD operations on these models as you feel
 
 urlpatterns = [
     path('admin/', admin.site.urls), # Can remove if you wish to, but useful to debug.
+    path('', include('data.urls')),
 ]
